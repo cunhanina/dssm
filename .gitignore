@@ -72,3 +72,6 @@ todo.md
 
 # VSCode
 .vscode/
+
+# Ignore all compiled outputs
+build/
