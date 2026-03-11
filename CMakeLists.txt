@@ -2,13 +2,18 @@ cmake_minimum_required(VERSION 3.12)
 project(dssm)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 include_directories(include)
 
-# 1. Automatically find ALL .cpp files in the src folder
-# CONFIGURE_DEPENDS tells CMake to watch the folder for new files
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp")
+# Find all source files
+file(GLOB_RECURSE SOURCES "src/*.cpp")
 
-# 2. Build the executable using every file it found
-add_executable(${PROJECT_NAME} ${SOURCES})
+# Create a separate executable for every .cpp file found
+foreach(source_file ${SOURCES})
+    # Get the filename without the path or extension (e.g., "aula02_at1")
+    get_filename_component(exe_name ${source_file} NAME_WE)
+    
+    # Create the executable
+    add_executable(${exe_name} ${source_file})
+endforeach()
