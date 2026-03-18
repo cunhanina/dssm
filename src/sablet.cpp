@@ -1,6 +1,6 @@
 
 /**
- * @file aps1.cpp
+ * @file sablet.cpp
  * @author Nina Cunha
  * @date 2026-03-11
  * @brief Valida operações matemáticas.
@@ -16,7 +16,7 @@
 using namespace std;
 
 int main(){
-    float a; float b; 
+    float a, b; 
     int op;
 
     cout << "Digite o primeiro número: ";
